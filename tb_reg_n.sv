@@ -21,14 +21,23 @@ module tb_reg_n;
     $dumpvars (0, tb_reg_n);
     
     // 
-    rst_tb=1; d_tb = 8'hAA; #10;
-    rst_tb=0; #10;
+      rst_tb = 0; 
+      en_tb = 0;
+      d_tb = '0;
+    
+       #15 rst_tb = 1; // Reset activo
     
     // Test 1
     
-    
+      #10
+      d_tb = 8'hAA; // Carga un valor
+      en_tb = 1; // Habilita la carga
+      
     // Test 2
-    
+
+      #10
+      d_tb = 8'h55; // Carga un valor
+      en_tb = 0; // Habilita la carga    
     
     // Test 3
     
